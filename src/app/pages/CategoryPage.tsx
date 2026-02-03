@@ -4,69 +4,148 @@ import { FileText, Clock, Calendar, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 
 interface Writeup {
-  id: string;
-  title: string;
-  date: string;
-  readTime: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  tags: string[];
-  year: string;
+
+  id: string;
+
+  title: string;
+
+  date: string;
+
+  readTime: string;
+
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+
+  tags: string[];
+
+  year: string;
+
+  category: string;
+
 }
 
-export function CategoryPage() {
-  const { category } = useParams<{ category: string }>();
-  const [selectedYear, setSelectedYear] = useState('2025');
 
-    // Mock data - will be replaced by data from a CMS or file-based system
-    const writeups: Writeup[] = [
-      {
-        id: 'sql-injection-in-login-form',
-        title: 'SQL Injection in Login Form - CTF Challenge',
-        date: '2025-01-28',
-        readTime: '8 min',
-        difficulty: 'Medium',
-        tags: ['SQL Injection', 'Web Security', 'CTF'],
-        year: '2025',
-      },
-      {
-        id: 'exploiting-buffer-overflow-vulnerability',
-        title: 'Exploiting Buffer Overflow Vulnerability',
-        date: '2025-01-25',
-        readTime: '12 min',
-        difficulty: 'Hard',
-        tags: ['Binary Exploitation', 'Buffer Overflow'],
-        year: '2025',
-      },
-      {
-        id: 'xss-attack-vector-analysis',
-        title: 'XSS Attack Vector Analysis',
-        date: '2025-01-20',
-        readTime: '6 min',
-        difficulty: 'Easy',
-        tags: ['XSS', 'Web Security'],
-        year: '2025',
-      },
-      {
-        id: 'advanced-rop-chain-techniques',
-        title: 'Advanced ROP Chain Techniques',
-        date: '2026-12-15',
-        readTime: '15 min',
-        difficulty: 'Hard',
-        tags: ['ROP', 'Binary Exploitation'],
-        year: '2026',
-      },
-      {
-        id: 'csrf-token-bypass-methods',
-        title: 'CSRF Token Bypass Methods',
-        date: '2026-11-08',
-        readTime: '7 min',
-        difficulty: 'Medium',
-        tags: ['CSRF', 'Web Security'],
-        year: '2026',
-      },
-    ];
-  const years = ['2025', '2026', '2027'];
-  const filteredWriteups = writeups.filter((w) => w.year === selectedYear);
+
+export function CategoryPage() {
+
+  const { category } = useParams<{ category:string }>();
+
+  const [selectedYear, setSelectedYear] = useState('2025');
+
+
+
+  // Mock data - will be replaced by data from a CMS or file-based system
+
+  const writeups: Writeup[] = [
+
+    {
+
+      id: 'exploiting-buffer-overflow-vulnerability',
+
+      title: 'Exploiting Buffer Overflow Vulnerability',
+
+      date: '2025-01-25',
+
+      readTime: '12 min',
+
+      difficulty: 'Hard',
+
+      tags: ['Binary Exploitation', 'Buffer Overflow'],
+
+      year: '2025',
+
+      category: 'binary-exploitation',
+
+    },
+
+    {
+
+      id: 'xss-attack-vector-analysis',
+
+      title: 'XSS Attack Vector Analysis',
+
+      date: '2025-01-20',
+
+      readTime: '6 min',
+
+      difficulty: 'Easy',
+
+      tags: ['XSS', 'Web Security'],
+
+      year: '2025',
+
+      category: 'web-security',
+
+    },
+
+    {
+
+      id: 'advanced-rop-chain-techniques',
+
+      title: 'Advanced ROP Chain Techniques',
+
+      date: '2026-12-15',
+
+      readTime: '15 min',
+
+      difficulty: 'Hard',
+
+      tags: ['ROP', 'Binary Exploitation'],
+
+      year: '2026',
+
+      category: 'binary-exploitation',
+
+    },
+
+    {
+
+      id: 'csrf-token-bypass-methods',
+
+      title: 'CSRF Token Bypass Methods',
+
+      date: '2026-11-08',
+
+      readTime: '7 min',
+
+      difficulty: 'Medium',
+
+      tags: ['CSRF', 'Web Security'],
+
+      year: '2026',
+
+      category: 'web-security',
+
+    },
+
+     {
+
+      id: 'BUCKEYE2025 FORENSICS_ zip2john2zip',
+
+      title: 'BUCKEYE2025 FORENSICS_ zip2john2zip',
+
+      date: '2025-11-08',
+      readTime: '7 min',
+
+      difficulty: 'Medium',
+
+      tags: ['Forensics', 'Zip', 'John the Ripper'],
+
+      year: '2025',
+
+      category: 'forensics',
+    },
+
+  ];
+
+
+
+  const years = ['2025', '2026', '2027'];
+
+  const filteredWriteups = writeups.filter(
+
+    (w) => w.category === category && w.year === selectedYear
+
+  );
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
