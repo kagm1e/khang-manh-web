@@ -21,7 +21,7 @@ export function WriteupPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/writeups/${id}.md`)
+    fetch(`/writeups/${category}/${id}.md`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
