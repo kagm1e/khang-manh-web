@@ -1,0 +1,33 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+/* Trạng thái ẩn */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Trạng thái hiện khi lướt tới */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* src/index.css */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ép phần Hero hiện ngay lập tức nếu muốn */
+header, .hero-instant {
+  opacity: 1 !important;
+  transform: none !important;
+}
