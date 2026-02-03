@@ -17,55 +17,54 @@ export function CategoryPage() {
   const { category } = useParams<{ category: string }>();
   const [selectedYear, setSelectedYear] = useState('2025');
 
-  // Mock data - sẽ được thay thế bằng dữ liệu thực từ backend
-  const writeups: Writeup[] = [
-    {
-      id: '1',
-      title: 'SQL Injection in Login Form - CTF Challenge',
-      date: '2025-01-28',
-      readTime: '8 min',
-      difficulty: 'Medium',
-      tags: ['SQL Injection', 'Web Security', 'CTF'],
-      year: '2025',
-    },
-    {
-      id: '2',
-      title: 'Exploiting Buffer Overflow Vulnerability',
-      date: '2025-01-25',
-      readTime: '12 min',
-      difficulty: 'Hard',
-      tags: ['Binary Exploitation', 'Buffer Overflow'],
-      year: '2025',
-    },
-    {
-      id: '3',
-      title: 'XSS Attack Vector Analysis',
-      date: '2025-01-20',
-      readTime: '6 min',
-      difficulty: 'Easy',
-      tags: ['XSS', 'Web Security'],
-      year: '2025',
-    },
-    {
-      id: '4',
-      title: 'Advanced ROP Chain Techniques',
-      date: '2026-12-15',
-      readTime: '15 min',
-      difficulty: 'Hard',
-      tags: ['ROP', 'Binary Exploitation'],
-      year: '2026',
-    },
-    {
-      id: '5',
-      title: 'CSRF Token Bypass Methods',
-      date: '2026-11-08',
-      readTime: '7 min',
-      difficulty: 'Medium',
-      tags: ['CSRF', 'Web Security'],
-      year: '2026',
-    },
-  ];
-
+    // Mock data - will be replaced by data from a CMS or file-based system
+    const writeups: Writeup[] = [
+      {
+        id: 'sql-injection-in-login-form',
+        title: 'SQL Injection in Login Form - CTF Challenge',
+        date: '2025-01-28',
+        readTime: '8 min',
+        difficulty: 'Medium',
+        tags: ['SQL Injection', 'Web Security', 'CTF'],
+        year: '2025',
+      },
+      {
+        id: 'exploiting-buffer-overflow-vulnerability',
+        title: 'Exploiting Buffer Overflow Vulnerability',
+        date: '2025-01-25',
+        readTime: '12 min',
+        difficulty: 'Hard',
+        tags: ['Binary Exploitation', 'Buffer Overflow'],
+        year: '2025',
+      },
+      {
+        id: 'xss-attack-vector-analysis',
+        title: 'XSS Attack Vector Analysis',
+        date: '2025-01-20',
+        readTime: '6 min',
+        difficulty: 'Easy',
+        tags: ['XSS', 'Web Security'],
+        year: '2025',
+      },
+      {
+        id: 'advanced-rop-chain-techniques',
+        title: 'Advanced ROP Chain Techniques',
+        date: '2026-12-15',
+        readTime: '15 min',
+        difficulty: 'Hard',
+        tags: ['ROP', 'Binary Exploitation'],
+        year: '2026',
+      },
+      {
+        id: 'csrf-token-bypass-methods',
+        title: 'CSRF Token Bypass Methods',
+        date: '2026-11-08',
+        readTime: '7 min',
+        difficulty: 'Medium',
+        tags: ['CSRF', 'Web Security'],
+        year: '2026',
+      },
+    ];
   const years = ['2025', '2026', '2027'];
   const filteredWriteups = writeups.filter((w) => w.year === selectedYear);
 
